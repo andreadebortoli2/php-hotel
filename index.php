@@ -50,6 +50,16 @@ $hotels = [
 ];
 
 // var_dump($hotels);
+
+function filterFunction($item)
+{
+    return $item['parking'] == true;
+};
+
+if ($_GET['parking']) {
+    echo 'yes';
+    $hotels = array_filter($hotels, 'filterFunction');
+};
 ?>
 
 <!doctype html>
@@ -64,7 +74,15 @@ $hotels = [
 
 <body>
 
-    <div class="container">
+    <div class="container pt-4">
+        <form action="" method="get">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="parking" />
+                <label class="form-check-label" for="">Parking</label>
+                <button type="submit">Filter</button>
+            </div>
+        </form>
+
         <h1>Hotels</h1>
         <table class="table">
             <thead>
