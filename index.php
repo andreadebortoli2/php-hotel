@@ -64,31 +64,35 @@ $hotels = [
 
 <body>
 
-    <h1>Hotels</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Hotel Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Parking</th>
-                <th scope="col">Vote</th>
-                <th scope="col">Distance to center</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($hotels as $hotel) {
-                echo "<tr>
-                <td>{$hotel['name']}</td>
-                <td>{$hotel['description']}</td>
-                <td>{$hotel['parking']}</td>
-                <td>{$hotel['vote']}</td>
-                <td>{$hotel['distance_to_center']}</td>
+    <div class="container">
+        <h1>Hotels</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Hotel</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance to center</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($hotels as $hotel) {
+                    echo "<tr><td>{$hotel['name']}</td>";
+                    echo "<td>{$hotel['description']}</td>";
+                    if ($hotel['parking'] === true) {
+                        echo "<td>Yes</td>";
+                    } else {
+                        echo "<td></td>";
+                    };
+                    echo "<td>{$hotel['vote']} / 5</td>";
+                    echo "<td>{$hotel['distance_to_center']} Km</td>
                 </tr>";
-            };
-            ?>
-        </tbody>
-    </table>
+                };
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
